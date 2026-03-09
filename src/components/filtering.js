@@ -15,10 +15,11 @@ export function initFiltering(elements) {
   const applyFiltering = (query, state, action) => {
     // код с обработкой очистки поля
     if (action == undefined);
-    else if (action.getAttribute("name") == "clear") {
+    else if (action?.name === "clear") {
       const parent = action.parentElement;
       const target = parent.querySelector("input");
       target.value = "";
+      state[target.name] = "";
     }
 
     // @todo: #4.5 — отфильтровать данные, используя компаратор
